@@ -1,0 +1,22 @@
+@import '../templates/mixins';
+@import '../templates/colors';
+
+.loading {
+	height: 5px;
+	width: 50px;
+	background: $tertiary;
+	margin: 3rem auto;
+	animation: 1.5s spin linear infinite;
+	border-radius: 9999px;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+		background: $tertiary;
+	}
+	100% {
+		transform: rotate(360deg);
+		background: $secondary;
+	}
+}

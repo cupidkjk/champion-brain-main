@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap");
+@import 'templates/mixins';
+@import 'templates/colors';
+
+* {
+	box-sizing: border-box;
+	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+		"Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+		"Helvetica Neue";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	scroll-behavior: smooth;
+}
+html {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+body {
+	background: $background-1;
+	margin: 0px;
+}
+ul {
+	list-style-type: none;
+	padding: 0px;
+}
+a {
+	text-decoration: none;
+}
+a,
+input,
+button,
+select,
+textarea {
+	outline: none;
+}
+a,
+svg,
+input[type="button"],
+button {
+	cursor: pointer;
+}
+::-webkit-scrollbar {
+	width: 0.5rem;
+	height: 0.5rem;
+}
+::-webkit-scrollbar-track {
+	backgound: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background: $text;
+	background: $primary;
+	border-radius: 9999px;
+}
+::placeholder {
+	color: $placeholder;
+	opacity: 1;
+}
+:-ms-input-placeholder {
+	color: $placeholder;
+}
+::-ms-input-placeholder {
+	color: $placeholder;
+}
+.alert {
+	position: fixed;
+	color: $text;
+	top: -300px;
+	@include gradientBorder(2px);
+	width: 250px;
+	z-index: 5;
+	left: calc(50% - 125px);
+	text-align: center;
+	padding: 0.5rem 0.25rem;
+	background: $background-1;
+	height: auto;
+	box-shadow: 0px 0px 10px $background-1;
+	transition: 0.5s top linear;
+}
+.show-alert {
+	top: 0px;
+}
+.hide-alert {
+	top: -300px;
+}
+.profile-picture {
+	width: 40px;
+	height: 40px;
+	border-radius: 3px;
+	overflow: hidden;
+	object-fit: cover;
+}
+.main-container {
+	@include flex(flex-start, center);
+}
+.flag {
+	width: 25px;
+	height: 25px;
+	border-radius: 5px;
+	vertical-align: middle;
+	margin: 0.25rem;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+html {
+	@media (max-width: 1268px) {
+		font-size: 14px;
+	}
+	@media (max-width: 868px) {
+		font-size: 13px;
+	}
+	@media (max-width: 468px) {
+		font-size: 12px;
+	}
+	@media (max-width: 268px) {
+		font-size: 11px;
+	}
+}

@@ -1,0 +1,115 @@
+@import '../templates/mixins';
+@import '../templates/colors';
+
+.leaderboard {
+	background: $background-2;
+	margin: 0.25rem;
+	display: grid;
+	grid-template-rows: 50px 100px 125px auto;
+	height: calc(100vh - 120px);
+	gap: 0.5rem;
+	overflow-y: auto;
+	border-radius: 5px;
+	padding: 0.75rem;
+	.heading {
+		@include flex(center, space-between);
+		border-bottom: 2px solid $border;
+		h4 {
+			@include flex(center);
+			text-transform: uppercase;
+			font-weight: normal;
+			margin: 0px;
+			color: $text;
+		}
+		p {
+			color: $text;
+			font-size: 0.75rem;
+			margin: 0px 0.75rem 0px auto;
+		}
+		img {
+			height: 35px;
+		}
+	}
+	.rank {
+		@include flex(center);
+		color: $text;
+		gap: 0.5rem;
+		width: 100%;
+		border: 1px solid $border;
+		border-radius: 5px;
+		padding: 0.5rem;
+		> * {
+			@include flex(center);
+			gap: 0.5rem;
+		}
+		.rank-stats {
+			justify-self: flex-end;
+			margin-left: auto;
+		}
+		b, .flag, span {
+			@include flex(center, center);
+			height: 30px;
+			width: 30px;
+			border-radius: 5px;
+		}
+		b {
+			background: $border;
+			padding: 0.25rem;
+			border-right: 1px solid $border;
+			padding-right: 0.25rem;
+			border: 2px solid $text;
+		}
+		span {
+			background: $primary;
+		}
+	}
+	.first-rank, .second-third-rank {
+		border: 0px;
+		border-bottom: 1px solid $border;
+		border-radius: 0px;
+		padding: 0px;
+		.profile-picture {
+			width: 75px;
+			height: 75px;
+		}
+		.rank-flag-score {
+			@include flex(center, center, column);
+		}
+		.rank-position-info {
+			@include flex(flex-start, center, column);
+			svg {
+				padding: 0.25rem 0px;
+				margin: 0px 0px 0.5rem 0px;
+				font-size: 2rem;
+			}
+			p {
+				margin: 0px;
+			}
+		}
+	}
+	.second-third {
+		@include flex(center, center);
+		gap: 0.75rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 1px solid $border;
+		.second-third-rank {
+			border: 0px;
+			@include flex(flex-start, flex-start, column);
+			padding: 0.25rem 0px;
+			p {
+				margin: 0px;
+			}
+			.rank-stats {
+				@include flex(center);
+				justify-self: flex-start;
+				margin-left: 0px;
+				gap: 0.5rem;
+			}
+		}
+	}
+	.rankings {
+		@include flex(flex-start, flex-start, column);
+		gap: 0.5rem;
+		margin-top: 0.5rem;
+	}
+}

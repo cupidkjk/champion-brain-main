@@ -1,0 +1,116 @@
+@import 'colors';
+
+@mixin gradientBorder($border) {
+	border: $border solid transparent;
+	border-image: linear-gradient(
+		90deg,
+		$primary 0%,
+		$secondary 45.83%,
+		$tertiary 100%
+	);
+	border-image-slice: 1;
+}
+
+@mixin gradientText {
+	background: linear-gradient(
+		90deg,
+		$primary 0%,
+		$secondary 45.83%,
+		$tertiary 100%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+@mixin flex(
+	$align-items: flex-start,
+	$justify-content: flex-start,
+	$direction: row
+) {
+	display: flex;
+	align-items: $align-items;
+	justify-content: $justify-content;
+	flex-direction: $direction;
+}
+
+@mixin gradientButton {
+	@include gradientText;
+	@include gradientBorder(3px);
+	width: auto;
+	height: 40px;
+	font-size: 1rem;
+	font-weight: bold;
+	transition: 0.3s all;
+	&:hover {
+		background: linear-gradient(
+			90deg,
+			$primary 0%,
+			$secondary 45.83%,
+			$tertiary 100%
+		);
+		-webkit-text-fill-color: $text;
+	}
+}
+
+@mixin blueButton {
+	@include flex(center, center);
+	background: $primary;
+	border-radius: 3px;
+	border: 3px solid transparent;
+	color: $text;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 0px 1rem;
+	height: 40px;
+	width: auto;
+	&:hover {
+		background: transparent;
+		border-color: $primary;
+	}
+}
+
+@mixin pinkButton {
+	@include flex(center, center);
+	border-radius: 9999px;
+	border: 2px solid $secondary;
+	background: transparent;
+	color: $secondary;
+	font-size: 1rem;
+	width: auto;
+	height: 35px;
+	&:hover {
+		background: $secondary;
+		color: $text;
+	}
+}
+
+@mixin greyButton {
+	background: $border;
+	color: $text;
+	padding: 0.25rem 1.25rem;
+	border-radius: 9999px;
+	transition: 0.3s box-shadow;
+}
+
+@mixin heading {
+	@include gradientText;
+	display: inline-block;
+	position: relative;
+	padding: 0px 5vw;
+	margin: 0px 3rem;
+	&::after,
+	&::before {
+		content: "";
+		border-bottom: 2px solid $primary;
+		width: 4.5vw;
+		position: absolute;
+		top: 50%;
+		z-index: 1;
+	}
+	&::before {
+		left: 0;
+	}
+	&::after {
+		right: 0;
+	}
+}

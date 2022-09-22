@@ -1,0 +1,122 @@
+@import "../templates/mixins";
+@import "../templates/colors";
+
+.home {
+	display: grid;
+	grid-template-columns: 400px auto;
+	.stats-main-container {
+		background: $background-2;
+		margin: 0.25rem;
+		border-radius: 5px;
+		padding: 1rem;
+		.total-stats {
+			@include flex(center, center);
+			flex-wrap: wrap;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			gap: 0.75rem;
+			color: $text;
+			.total-stat {
+				@include flex(center, space-between, row);
+				height: 150px;
+				background: $background-1;
+				padding: 0.75rem 1.5rem;
+				border-radius: 5px;
+				.total-stat-heading {
+					height: calc(150px - 1.5rem);
+					@include flex(flex-start, space-around, column);
+					h1 {
+						margin: 0px;
+					}
+				}
+				img {
+					height: 110px;
+				}
+			}
+		}
+		.stats-container {
+			@include flex(stretch, center);
+			flex-wrap: wrap;
+			margin-top: 0.5rem;
+			gap: 0.5rem;
+			.stats {
+				padding: 1.5rem 0.5rem;
+				width: 500px;
+				min-width: 40%;
+				min-height: 200px;
+				max-height: auto;
+				text-align: center;
+				color: $text;
+				background: $background-1;
+				border-radius: 5px;
+				h3 {
+					border-bottom: 1px solid $border;
+					padding: 0.75rem 0px;
+					width: 100%;
+				}
+				h3,
+				h4,
+				h5 {
+					margin: 0px;
+					text-transform: uppercase;
+				}
+				.results {
+					@include flex(center, space-evenly);
+					flex-wrap: wrap;
+					.result {
+						width: 50%;
+						h4 {
+							padding: 0.75rem 0px;
+							border: solid $border;
+							border-width: 0px 1px 1px 0px;
+						}
+						&:last-child {
+							h4 {
+								border-right: 0px;
+							}
+						}
+					}
+					.result-stats {
+						@include flex(center, stretch);
+						border-right: 1px solid $border;
+					}
+					.stat {
+						padding: 0.75rem 0px;
+						border: solid $border;
+						border-width: 0px 1px 1px 0px;
+						width: 100%;
+					}
+					&:last-child {
+						.result-stats {
+							border-right: 0px;
+						}
+					}
+					.no-border {
+						border-right: 0px !important;
+					}
+				}
+			}
+		}
+	}
+	@media (max-width: 1180px) {
+		.stats-main-container {
+			.total-stats {
+				grid-template-columns: 1fr;
+				.total-stat {
+					width: 100%;
+				}
+			}
+		}
+	}
+	@media (max-width: 968px) {
+		grid-template-columns: 1fr;
+		.stats-main-container {
+			.stats-container {
+				.stats {
+					width: 95%;
+				}
+			}
+			order: -1;
+		}
+	}
+}

@@ -1,0 +1,50 @@
+@import '../templates/mixins';
+@import '../templates/colors';
+
+.admin-dashboard {
+	width: 100%;
+	margin: 3rem 0px;
+	h1, h2 {
+		text-align: center;
+		color: $text;
+		font-weight: normal;
+	}
+	h1 {
+		@include heading;
+		font-size: 1.75rem;
+	}
+	.all-users-container {
+		max-height: 600px;
+		width: 1400px;
+		max-width: 95%;
+		padding: 1.5rem;
+		margin: auto;
+		overflow-y: auto;
+		.all-users {
+			width: 100%;
+			background:  $background-2;
+			color: $text;
+			border-radius: 5px;
+			padding: 0.5rem;
+			th {
+				color: $secondary;
+			}
+			th, td {
+				padding: 0.75rem 0.5rem;
+				text-align: left;
+				border: 1px solid $border;
+				border-radius: 5px;
+				.profile-picture {
+					margin-right: 0.25rem;
+					vertical-align: middle;
+				}
+				.make-admin-btn {
+					@include blueButton;
+					height: 20px;
+					width: 80px;
+					font-size: 0.6rem;
+				}
+			}
+		}
+	}
+}

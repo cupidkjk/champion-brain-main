@@ -1,0 +1,35 @@
+@import '../templates/mixins';
+@import '../templates/colors';
+
+.sidebar {
+	position: static;
+	transition: 0.5s all;
+	@include flex(center, center);
+	.slider {
+		display: none;
+		width: 50px;
+		button {
+			@include flex(center, center);
+			background:  $background-2;
+			border: 2px solid $border;
+			font-size: 2rem;
+			color: $text;
+			width: 100%;
+			padding: 1rem 0px;
+			border-radius: 5px;
+		}
+	}
+	.child {
+		height: calc(100vh - 120px);
+	}
+}
+@media (max-width: 1112px) {
+	.sidebar {
+		position: fixed;
+		bottom: 0px;
+		z-index: 3;
+		.slider {
+			@include flex(center, center);
+		}
+	}
+}

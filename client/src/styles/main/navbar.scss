@@ -1,0 +1,192 @@
+@import "../templates/mixins";
+@import '../templates/colors';
+
+.navbar {
+	@include flex(center);
+	height: 120px;
+	padding: 0px 1rem;
+	gap: 1rem;
+	background: $background-2;
+	margin: 0px 0.25rem 0.25rem 0.25rem;
+	.left-navbar {
+		@include flex(center);
+		gap: 1.25rem;
+		background: $background-2;
+		.logo {
+			height: 120px;
+			padding: 1rem;
+			img {
+				height: 90px;
+			}
+		}
+		
+	}
+	.hamburger {
+		display: none;
+	}
+	.right-navbar {
+		@include flex(center);
+		margin-left: auto;
+		gap: 1.25rem;
+		.links {
+			@include flex(center);
+			gap: 2rem;
+			li {
+				a {
+					font-weight: bold;
+					font-size: 1.125rem;
+					transition: 0.3s all;
+					color: $text;
+					border-bottom: 2px solid transparent;
+					&:hover {
+						border-color: $tertiary;
+						color: $tertiary;
+					}
+				}
+			}
+			.selected-link a {
+				border-color: $tertiary;
+				color: $tertiary;
+			}
+		}
+		.auth-btns {
+			@include flex;
+			gap: 0.5rem;
+			a {
+				@include pinkButton;
+				width: 100px;
+			}
+		}
+		.avatar {
+			@include flex(center);
+			gap: 0.75rem;
+			.upload-profile-picture {
+				position: relative;
+				input {
+					color: white;
+					position: absolute;
+					top: 0px;
+					height: 30px;
+					width: 30px;
+					left: 0px;
+					opacity: 0;
+					z-index: 1;
+				}
+			}
+			.info {
+				position: relative;
+				.update-username {
+					@include flex(center, center);
+					position: absolute;
+					z-index: 3;
+					top: -15px;
+					left: -30px;
+					border: 2px solid $border;
+					box-shadow: 0px 5px 10px black;
+					border-radius: 5px;
+					overflow: hidden;
+					input, button {
+						height: 35px;
+						background: $background-1;
+						border: 0px;
+					}
+					input {
+						padding: 0px 0.5rem;
+						color: $text;
+					}
+					button {
+						@include flex(center, center);
+						font-size: 1.25rem;
+						color: $tertiary;
+					}
+				}
+				p {
+					cursor: pointer;
+					margin: 0px;
+					color: $text;
+				}
+			}
+		}
+		.link-icons {
+			@include flex(center);
+			gap: 1rem;
+			position: relative;
+			li,
+			.notification-link {
+				@include flex(center);
+				padding-left: 0.75rem;
+				height: 40px;
+				color: $text;
+				font-size: 1.25rem;
+			}
+			.settings {
+				@include flex(stretch, flex-start, column);
+				@include greyButton;
+				position: absolute;
+				left: -100%;
+				top: 160%;
+				background: $background-2;
+				border-radius: 5px;
+				padding: 1rem;
+				width: 175px;
+				z-index: 2;
+				gap: 0.5rem;
+				li {
+					border: 2px solid $input-light;
+					padding: 0.5rem;
+					border-radius: 9999px;
+					@include flex(center, center);
+					transition: 0.3s background;
+					a {
+						color: $tertiary;
+					}
+					&:hover {
+						background: $input-dark;
+					}
+				}
+			}
+		}
+		.notification-link {
+			position: relative;
+			&:after {
+				content: "";
+				position: absolute;
+				background: $secondary;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				right: -3px;
+				top: 5px;
+			}
+		}
+	}
+	@media (max-width: 768px) {
+		position: relative;
+		z-index: 2;
+		.right-navbar {
+			position: absolute;
+			background: $background-2;
+			width: 100%;
+			padding: 1rem;
+			left: 0px;
+			z-index: -1;
+			transition: 1s top;
+			@include flex(flex-start, flex-start, column);
+			.links {
+				@include flex(flex-start, flex-start, column);
+			}
+		}
+		.show {
+			top: 120px;
+		}
+		.hide {
+			top: -200%;
+		}
+		.hamburger {
+			display: block;
+			margin-left: auto;
+			font-size: 2rem;
+			color: $secondary;
+		}
+	}
+}

@@ -1,0 +1,76 @@
+@import "../templates/mixins";
+@import '../templates/colors';
+
+.help-container {
+	width: 1100px;
+	max-width: 95%;
+	margin: 3rem auto;
+	color: $text;
+	h1 {
+		@include heading;
+	}
+	.help {
+		margin: 1.5rem auto;
+		@include flex;
+		gap: 1.5rem;
+		position: relative;
+		.help-title-list {
+			padding: 0px 3rem 0px 0px;
+			border-right: 1px solid $primary;
+			li {
+				@include flex(center);
+				gap: 1rem;
+				font-size: 1.25rem;
+				transition: 0.3s color;
+				cursor: pointer;
+				button {
+					@include flex(center);
+					color: $text;
+					border: 0px;
+					background: transparent;
+					font-size: 2rem;
+				}
+				&:hover {
+					&,
+					button {
+						color: $primary;
+					}
+				}
+			}
+			.selected-help {
+				&,
+				button {
+					color: $primary;
+				}
+			}
+		}
+		.help-content {
+			transition: 1s all;
+			pre {
+				line-height: 1.75rem;
+				margin: 0px;
+				padding: 0px 1rem;
+			}
+			.dropdown-container {
+				.dropdown-content {
+					h3 {
+						margin: 0.75rem 0px;
+						color: $secondary;
+						font-weight: normal;
+					}
+					.heading {
+						@include flex(center);
+						gap: 1rem;
+						button {
+							@include flex(center);
+							color: $secondary;
+							border: 0px;
+							background: transparent;
+							font-size: 2rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}
